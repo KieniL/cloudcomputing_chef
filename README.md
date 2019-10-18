@@ -1,5 +1,5 @@
 # cloudcomputing
-Chef Kitchen repository for UAS
+Kitchen testing on Windows
 
 
 For Kitchen you need Virtualbox, Chefdk and Vagrant installed.
@@ -55,26 +55,41 @@ It additionally defines the location for tests
 (inspectests-section).
 
 
-This is an example kitchen.yml:
-![Alt text](kitchen.yml_example.PNG?raw=true "Example kitchen.yml")
-
 ### Add recipes
 Recipes are defined under /recipes/$filename$.rb
-We used the default.rb in our solution
+We used the an own cookbook file for each segment of the test.
+an example. We need to add apt update since the ubuntu 18.04 
+image does not allow installing without it.
+For modifying index.html in nginx we need to create the 
+index.html in our directory with:
+**chef generate file index.html**
+Now the file will be under files/index.html and can be modifed 
+with normal HTML.
+
+New Recipes should also be added to the Policyfile.rb
+as a run_list
+
+#### Attention ####
+Please be aware that change the default recipe also means 
+to change the recipename in the Policyfile.lock.json file
 
 ### Add tests
 Tests are defined under 
 /test/integration/$testname$/$testname$_$type$.rb
-We used the default_test.rb under /test/integration/default
+We created the three folder nginx, motd and user under test/ingegration.
 You define the path for the test in the kitchen.yml
 
 
 ## Running Tests
 
 With Kitchen it is possible to run automated tests or go through
- each teststep manually
+each teststep manually
 
 ### Manually
+At manual testing the instance needs to be created, 
+then the recipe converged and at last the test verified.
+
+
 This statement lists the instances defined in the kitchen.yml 
 and also their current action status based on tests
 **kitchen list**
@@ -101,11 +116,6 @@ Afterwards it tests your defined tests and output a statement.
 
 
 # Additional Information
-We had to reinstall the Policyfile.rb with 
-**chef install ./Policyfile.rb** 
-since we deleted the created subfolder from **chef generate**
-
-
 
 HowTo from Web:
 https://kitchen.ci/docs/getting-started/introduction/
