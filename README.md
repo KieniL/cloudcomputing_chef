@@ -67,7 +67,7 @@ Now the file will be under files/index.html and can be modifed
 with normal HTML.
 
 New Recipes should also be added to the Policyfile.rb
-as a run_list
+as a run_list and also in the run_list array in Policyfile.lock.json
 
 #### Attention ####
 Please be aware that change the default recipe also means 
