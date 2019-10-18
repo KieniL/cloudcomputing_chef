@@ -69,6 +69,14 @@ with normal HTML.
 New Recipes should also be added to the Policyfile.rb
 as a run_list and also in the run_list array in Policyfile.lock.json
 
+
+For the cookbooks and testing of message of the day templates are needed.
+For this a new directory templates and the template are created with this command
+**chef generate template motd.erb**
+Additionally variables are requested. The file for variables 
+are created with this command
+**chef generate attribute default**
+
 #### Attention ####
 Please be aware that change the default recipe also means 
 to change the recipename in the Policyfile.lock.json file
