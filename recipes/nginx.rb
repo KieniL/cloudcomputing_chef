@@ -7,7 +7,7 @@
 apt_update 'update'
 
 package 'nginx' do
-  action :install
+  action :upgrade
 end
 
 

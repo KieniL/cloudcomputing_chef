@@ -10,9 +10,7 @@ name 'cloudcomputing'
 default_source :supermarket
 
 # run_list: chef-client will run these recipes in the order specified.
-run_list 'cloudcomputing::nginx'
-run_list 'cloudcomputing::motd'
-run_list 'cloudcomputing::user'
+run_list 'cloudcomputing::nginx', 'cloudcomputing::motd', 'cloudcomputing::user'
 
 # Specify a custom source for a single cookbook:
 cookbook 'cloudcomputing', path: '.'
