@@ -12,7 +12,6 @@ template '/etc/motd' do
   variables(groupname: node['motd']['groupname'],
             groupmembers: node['motd']['groupmembers'],
             lecturer: node['motd']['lecturer'],
-            #lastRun: node['authorization']['sudo']['users'],
             date: shell_out!('date +%d.%m.%Y | tr -d "\n"').stdout,
             changeText: node['motd']['changeText'])
 end
