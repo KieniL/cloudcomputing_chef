@@ -13,5 +13,5 @@ describe file('/etc/motd') do
   its('content') { should match(%r{(\w*,\w+)*}) }
   its('content') { should match(%r{KAPPEL/Christoph}) }
   its('content') { should match(%r{^\s*(3[01]|[12][0-9]|0?[1-9])\.(1[012]|0?[1-9])\.((?:19|20)\d{2})\s*$}) }
-  its('content') { should match(%r{Change me}) }
+  its('content') { should match(%r{Changed}) }
 end

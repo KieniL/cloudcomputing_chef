@@ -1,8 +1,9 @@
-<% @results = "" %>
+<% @results = %s"" %>
 <%= @groupname %>
 <% @groupmembers.each do |member| -%>
-<% @results = @results.to_s + @member %>
+<% @results = @results.to_s + member+"," %>
 <% end -%>
+<%= @results[0, @results.length - 1] %>
 <%= @lecturer %>
 <%= @date %>
 <%= @changeText %>
